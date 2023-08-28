@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                {% if profile.profile_picture %}
+                    <img src="{{ profile.profile_picture.url }}" alt="Profile Picture" class="img-fluid rounded-circle mb-3">
+                {% endif %}
+                <!--<h4>{{ profile.user.username }}</h4>-->
+                {% if profile.job_title %}
+                    <h3>Job Title</h3>
+                    <p><i class="fas fa-briefcase"></i> {{ profile.job_title }}</p>
+                {% endif %}
+            </div>
+            <div class="col-md-8">
+                {% if profile.bio %}
+                    <h3>About Me</h3>
+                    <p>{{ profile.bio }}</p>
+                {% endif %}
+                {% if profile.email %}
+                    <h3>Email</h3>
+                    <p><i class="fas fa-envelope"></i> {{ profile.email }}</p>
+                {% endif %}
+                {% if profile.phone_number %}
+                    <h3>Phone Number</h3>
+                    <p><i class="fas fa-phone"></i> {{ profile.phone_number }}</p>
+                {% endif %}
+                {% if profile.website %}
+                    <h3>Website</h3>
+                    <p><i class="fas fa-globe"></i> <a href="{{ profile.website }}" target="_blank">{{ profile.website }}</a></p>
+                {% endif %}
+                {% if profile.address %}
+                    <h3>Address</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> {{ profile.address }}</p>
+                {% endif %}
+                {% if profile.first_name %}
+                    <p><strong>First Name:</strong> {{ profile.first_name }}</p>
+                {% endif %}
+                {% if profile.last_name %}
+                    <p><strong>Last Name:</strong> {{ profile.last_name }}</p>
+                {% endif %}
+                {% if profile.company_name %}
+                    <h3>Company Name</h3>
+                    <p><i class="fas fa-building"></i> {{ profile.company_name }}</p>
+                {% endif %}
+                {% if profile.skills %}
+                    <h3>Skills</h3>
+                    <p><i class="fas fa-tools"></i> {{ profile.skills }}</p>
+                {% endif %}
+                {% if profile.linkedin_profile %}
+                    <h3>LinkedIn Profile</h3>
+                    <p><i class="fab fa-linkedin"></i> <a href="{{ profile.linkedin_profile }}" target="_blank">{{ profile.linkedin_profile }}</a></p>
+                {% endif %}
+                {% if profile.twitter_profile %}
+                    <h3>Twitter Profile</h3>
+                    <p><i class="fab fa-twitter"></i> <a href="{{ profile.twitter_profile }}" target="_blank">{{ profile.twitter_profile }}</a></p>
+                {% endif %}
+                {% if profile.education %}
+                    <h3>Education</h3>
+                    <p><i class="fas fa-graduation-cap"></i> {{ profile.education }}</p>
+                {% endif %}
+                {% if profile.certifications %}
+                    <h3>Certifications</h3>
+                    <p><i class="fas fa-certificate"></i> {{ profile.certifications }}</p>
+                {% endif %}
+                {% if profile.projects %}
+                    <h3>Projects</h3>
+                    <p><i class="fas fa-project-diagram"></i> {{ profile.projects }}</p>
+                {% endif %}
+                {% if profile.references %}
+                    <h3>References</h3>
+                    <p>{{ profile.references }}</p>
+                {% endif %}
+                {% if profile.hobbies %}
+                    <h3>Hobbies</h3>
+                    <p><i class="fas fa-hiking"></i> {{ profile.hobbies }}</p>
+                {% endif %}
+                {% if profile.languages %}
+                    <h3>Languages</h3>
+                    <p><i class="fas fa-language"></i> {{ profile.languages }}</p>
+                {% endif %}
+                {% if profile.work_experience %}
+                    <h3>Work Experience</h3>
+                    <p><i class="fas fa-briefcase"></i> {{ profile.work_experience }}</p>
+                {% endif %}
+                {% if profile.region %}
+                    <h3>Region</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> {{ profile.region }}</p>
+                {% endif %}
+                {% if profile.publications %}
+                    <h3>Publications</h3>
+                    <p><i class="fas fa-book"></i> {{ profile.publications }}</p>
+                {% endif %}
+                {% if profile.mentorship %}
+                    <h3>Mentorship</h3>
+                    <p><i class="fas fa-handshake"></i> {{ profile.mentorship }}</p>
+                {% endif %}
+                {% if profile.social_projects %}
+                    <h3>Social Projects</h3>
+                    <p><i class="fas fa-hands-helping"></i> {{ profile.social_projects }}</p>
+                {% endif %}
+                {% if profile.preferred_contact_methods %}
+                    <h3>Preferred Contact Methods</h3>
+                    <p>{{ profile.preferred_contact_methods }}</p>
+                {% endif %}
+                {% if profile.video_introduction %}
+                    <h3>Video Introduction</h3>
+                    <p><i class="fas fa-video"></i> <a href="{{ profile.video_introduction }}">Watch Video</a></p>
+                {% endif %}
+                {% if profile.birthdate %}
+                    <h3>Birthdate</h3>
+                    <p><i class="fas fa-birthday-cake"></i> {{ profile.birthdate }}</p>
+                {% endif %}
+                {% if profile.salary_expectations %}
+                    <h3>Salary Expectations</h3>
+                    <p><i class="fas fa-money-bill-wave"></i> {{ profile.salary_expectations }}</p>
+                {% endif %}
+                {% if profile.privacy_settings %}
+                    <h3>Privacy Settings</h3>
+                    <p>{{ profile.privacy_settings }}</p>
+                {% endif %}
+                {% if profile.email_subscriptions %}
+                    <h3>Email Subscriptions</h3>
+                    <p>{{ profile.email_subscriptions }}</p>
+                {% endif %}
+                {% if user.is_authenticated %}
+                    <p><a class="btn btn-primary" href="{% url 'profileapp:update_profile' %}" role="button">Update Profile</a></p>
+                {% endif %}
+                <!-- Diğer tüm alanları aynı şekilde ekleyin -->
+            </div>
+        </div>
+    </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

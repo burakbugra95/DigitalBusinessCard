@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="display-4">Welcome to DigitalCard!</h1>
+            <p class="lead">Create and manage your digital profile with ease.</p>
+            {% if user.is_authenticated %}
+            <p><a class="btn btn-primary btn-lg" href="{% url 'profileapp:update_profile' %}" role="button">Update Profile</a></p>
+            <p><a class="btn btn-secondary btn-lg" href="{% url 'profileapp:viewProfile' user.username %}" role="button">View Profile</a></p>
+            {% else %}
+            <p><a class="btn btn-primary btn-lg" href="{% url 'profileapp:signup' %}" role="button">Get Started</a></p>
+            {% endif %}
+        </div>
+        <!--For Dev list every users page in Home Page-->
+        <br><br><br>
+        <div class="container">
+            <H2>Every Users Profile</H2>
+            {% if users is not none %}
+                {% for u in users %}
+                    <p><a class="btn btn-secondary btn-lg" href="{% url 'profileapp:viewProfile' u.username %}" role="button">{{ u.username }}</a></p>
+                {% endfor %}
+            {% endif %}
+            
+        </div>
+    </section>
+{% endblock %}

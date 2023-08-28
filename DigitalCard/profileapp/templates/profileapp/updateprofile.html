@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Edit Profile</h2>
+        <form action="{% url 'profileapp:update_profile' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="first_name">First Name</label>
+                <input type="text" class="form-control" id="first_name" name="first_name" value="{{ profile.first_name }}">
+            </div>
+            <div class="form-group">
+                <label for="last_name">Last Name</label>
+                <input type="text" class="form-control" id="last_name" name="last_name" value="{{ profile.last_name }}">
+            </div>
+            <div class="form-group">
+                <label for="job_title">Job Title</label>
+                <input type="text" class="form-control" id="job_title" name="job_title" value="{{ profile.job_title }}">
+            </div>
+            <div class="form-group">
+                <label for="company_name">Company Name</label>
+                <input type="text" class="form-control" id="company_name" name="company_name" value="{{ profile.company_name }}">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" value="{{ profile.email }}">
+            </div>
+            <div class="form-group">
+                <label for="phone_number">Phone Number</label>
+                <input type="text" class="form-control" id="phone_number" name="phone_number" value="{{ profile.phone_number }}">
+            </div>
+            <div class="form-group">
+                <label for="website">Website</label>
+                <input type="url" class="form-control" id="website" name="website" value="{{ profile.website }}">
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea class="form-control" id="address" name="address">{{ profile.address }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="bio">Bio</label>
+                <textarea class="form-control" id="bio" name="bio">{{ profile.bio }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="skills">Skills</label>
+                <input type="text" class="form-control" id="skills" name="skills" value="{{ profile.skills }}">
+            </div>
+            <div class="form-group">
+                <label for="profile_picture">Profile Picture</label>
+                <input type="file" class="form-control-file" id="profile_picture" name="profile_picture">
+            </div>
+            <div class="form-group">
+                <label for="linkedin_profile">LinkedIn Profile</label>
+                <input type="url" class="form-control" id="linkedin_profile" name="linkedin_profile" value="{{ profile.linkedin_profile }}">
+            </div>
+            <div class="form-group">
+                <label for="twitter_profile">Twitter Profile</label>
+                <input type="url" class="form-control" id="twitter_profile" name="twitter_profile" value="{{ profile.twitter_profile }}">
+            </div>
+            <div class="form-group">
+                <label for="education">Education</label>
+                <textarea class="form-control" id="education" name="education">{{ profile.education }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="certifications">Certifications</label>
+                <textarea class="form-control" id="certifications" name="certifications">{{ profile.certifications }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="projects">Projects</label>
+                <textarea class="form-control" id="projects" name="projects">{{ profile.projects }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="references">References</label>
+                <textarea class="form-control" id="references" name="references">{{ profile.references }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="hobbies">Hobbies</label>
+                <textarea class="form-control" id="hobbies" name="hobbies">{{ profile.hobbies }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="languages">Languages</label>
+                <input type="text" class="form-control" id="languages" name="languages" value="{{ profile.languages }}">
+            </div>
+            <div class="form-group">
+                <label for="work_experience">Work Experience</label>
+                <textarea class="form-control" id="work_experience" name="work_experience">{{ profile.work_experience }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="region">Region</label>
+                <input type="text" class="form-control" id="region" name="region" value="{{ profile.region }}">
+            </div>
+            <div class="form-group">
+                <label for="publications">Publications</label>
+                <textarea class="form-control" id="publications" name="publications">{{ profile.publications }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="mentorship">Mentorship</label>
+                <textarea class="form-control" id="mentorship" name="mentorship">{{ profile.mentorship }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="social_projects">Social Projects</label>
+                <textarea class="form-control" id="social_projects" name="social_projects">{{ profile.social_projects }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="preferred_contact_methods">Preferred Contact Methods</label>
+                <textarea class="form-control" id="preferred_contact_methods" name="preferred_contact_methods">{{ profile.preferred_contact_methods }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="video_introduction">Video Introduction</label>
+                <input type="url" class="form-control" id="video_introduction" name="video_introduction" value="{{ profile.video_introduction }}">
+            </div>
+            <div class="form-group">
+                <label for="birthdate">Birthdate</label>
+                <input type="date" class="form-control" id="birthdate" name="birthdate" value="{{ profile.birthdate }}">
+            </div>
+            <div class="form-group">
+                <label for="salary_expectations">Salary Expectations</label>
+                <input type="text" class="form-control" id="salary_expectations" name="salary_expectations" value="{{ profile.salary_expectations }}">
+            </div>
+            <div class="form-group">
+                <label for="privacy_settings">Privacy Settings</label>
+                <textarea class="form-control" id="privacy_settings" name="privacy_settings">{{ profile.privacy_settings }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="email_subscriptions">Email Subscriptions</label>
+                <textarea class="form-control" id="email_subscriptions" name="email_subscriptions">{{ profile.email_subscriptions }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS ve jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
