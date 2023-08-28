@@ -45,7 +45,7 @@ def update_profile(request):
         form = ProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             form.save()
-            return redirect(reverse('viewProfile', args=[user.username]))  # Profil sayfasına yönlendirme yapabilirsiniz
+            return redirect(reverse('profileapp:viewProfile', args=[user.username]))  # Profil sayfasına yönlendirme yapabilirsiniz
     else:
         return render(request, 'profileapp/updateprofile.html')
 
